@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore"; 
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
@@ -54,7 +55,7 @@ const Register = () => {
           <button>Sign up </button>
           {err && <span>Something went wrong</span>}
         </form>
-        <p>You do have an account? Login</p>
+        <p>You do have an account? <Link to="/login">Login</Link></p>
       </div>
     </div>
   );
