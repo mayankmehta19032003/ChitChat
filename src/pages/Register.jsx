@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword} from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore"; 
 import { useNavigate } from "react-router";
@@ -20,12 +20,12 @@ const Register = () => {
     try {
       //authentication
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      
+  
       //firbase database to store user detail
       await setDoc(doc(db,"users",res.user.uid),{
         uid: res.user.uid,
-        displayName,
-        email
+        displayName: displayName,
+        email : email
       });
 
       //firbase database to store user chats
